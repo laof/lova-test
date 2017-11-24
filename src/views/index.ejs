@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="shortcut icon" href="/image/logo.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <span> hello
+        <%=name %>
+            <%=date%>
+    </span>
+    <script src="js/jquery3.2.1.js"></script>
+    <script src="js/socket.io.js"></script>
+    <script>
+
+        
+
+        var webSocket = io.connect('http://localhost');
+
+        // webSocket.onopen = () => {
+        //     console.log('链接成功');
+        //     webSocket.send('I am lova');
+        // }
+        // webSocket.onmessage = (res) => {
+        //     console.log(res);
+        // }
+        // webSocket.onclose = () => {
+        //     console.log('oh .. kill webSocket');
+        // }
+
+        // webSocket.emit('message', { message: new Date().toLocaleString(), state: true });
+
+        // webSocket.on("server not me", (e) => {
+        //     console.log(e);
+        // });
+
+        // webSocket.on('server send', (e) => {
+        //     console.log(e)
+        // })
+
+        // webSocket.emit('group');
+
+
+        // setTimeout(() => {
+        //     webSocket.emit('login', { login: window.location.href });
+        // }, 2000)
+
+        // setTimeout(() => {
+        //     webSocket.emit('message', { message: window.navigator.appVersion });
+        // }, 5000)
+
+    </script>
+</body>
+
+</html>
