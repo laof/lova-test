@@ -4,8 +4,6 @@ import * as Path from 'path';
 import * as cors from 'cors';
 import * as http from 'http';
 
-// import { WebSocket } from './src/services/socket.service';
-
 import config from './src/app.config';
 
 const bp = config.basePath;
@@ -63,11 +61,12 @@ export class Server extends ServerLoader {
                 extended: true
             }));
 
-        // WebSocket.start(this.expressApp.socket);
 
         this
             .set('view engine', 'ejs')
             .set('views', filepath.rootDir);
+
+        start(this.httpServer);
 
     }
 
@@ -85,5 +84,39 @@ export class Server extends ServerLoader {
     }
 
 }
+
+import * as webSocket from 'socket.io';
+
+function start(server: any) {
+
+
+    const socket = webSocket(server);
+
+    socket.on('connection', (socket) => {
+
+        socket.on('group', (data) => {
+            console.log('add group........')
+            socket.join('group');
+        });
+
+        // console.log('add socket success');
+
+        socket.on('login', (data) => {
+            console.log(data);
+        })
+        socket.on('message', (msg) => {
+            console.dir(msg);
+        });
+
+        socket.broadcast.emit('server not me', { data: 'hello,everyone' });
+
+        socket.emit('server send', { code: 200, data: new Date().toLocaleString() });
+    })
+
+    return server;
+}
+
+
+
 
 Server.Init();

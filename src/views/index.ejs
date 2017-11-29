@@ -8,54 +8,60 @@
     <title>Document</title>
     <link rel="shortcut icon" href="/image/logo.png">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
-    <span> hello
-        <%=name %>
-            <%=date%>
-    </span>
+
+
+    <p class="title">欢迎您，
+        <span id="showUserInfo"></span>
+    </p>
+
+    <div class="mc"></div>
+
+    <div class="alert">
+
+        <table>
+            <tr>
+                <td> 用户名： </td>
+                <td>
+                    <input maxlength="20" id="name" type="text">
+                </td>
+            </tr>
+            <tr>
+                <td> 密码： </td>
+                <td>
+                    <input maxlength="20" id="passwd" type="text">
+                </td>
+            </tr>
+        </table>
+
+        <button class="sure" id="login">确定</button>
+
+    </div>
+
+    <div class="panel">
+        <div class="show" id="show">
+            <div class="list other">
+                <label>fdafa:</label>
+                <pre>范德萨发生</pre>
+            </div>
+            <div class="list my">
+                <pre>范德萨发生</pre>
+            </div>
+        </div>
+
+        <div class="bar">
+            <textarea type="text" id="message"> </textarea>
+            <button id="submit">submit</button>
+        </div>
+
+    </div>
+
     <script src="js/jquery3.2.1.js"></script>
     <script src="js/socket.io.js"></script>
-    <script>
-
-        
-
-        var webSocket = io.connect('http://localhost');
-
-        // webSocket.onopen = () => {
-        //     console.log('链接成功');
-        //     webSocket.send('I am lova');
-        // }
-        // webSocket.onmessage = (res) => {
-        //     console.log(res);
-        // }
-        // webSocket.onclose = () => {
-        //     console.log('oh .. kill webSocket');
-        // }
-
-        // webSocket.emit('message', { message: new Date().toLocaleString(), state: true });
-
-        // webSocket.on("server not me", (e) => {
-        //     console.log(e);
-        // });
-
-        // webSocket.on('server send', (e) => {
-        //     console.log(e)
-        // })
-
-        // webSocket.emit('group');
-
-
-        // setTimeout(() => {
-        //     webSocket.emit('login', { login: window.location.href });
-        // }, 2000)
-
-        // setTimeout(() => {
-        //     webSocket.emit('message', { message: window.navigator.appVersion });
-        // }, 5000)
-
-    </script>
+    <script src="js/mysocket.js"></script>
 </body>
 
 </html>

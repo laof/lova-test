@@ -20,6 +20,7 @@
     "@types/express-session": "^1.15.3",
     "@types/lodash": "^4.14.85",
     "@types/mysql": "^2.15.0",
+    "@types/socket.io": "^1.4.31",
     "compression": "^1.7.1",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.4",
